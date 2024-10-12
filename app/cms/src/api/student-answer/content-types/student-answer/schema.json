@@ -1,0 +1,35 @@
+{
+  "kind": "collectionType",
+  "collectionName": "student_answers",
+  "info": {
+    "singularName": "student-answer",
+    "pluralName": "student-answers",
+    "displayName": "Ответы учеников",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "user": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user"
+    },
+    "test": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::test.test"
+    },
+    "answers": {
+      "type": "json"
+    },
+    "psychologistReview": {
+      "type": "text"
+    },
+    "teacherReview": {
+      "type": "text"
+    }
+  }
+}

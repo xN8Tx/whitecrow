@@ -1,0 +1,52 @@
+version: "3.8"
+
+services:
+  client:
+    container_name: client
+    restart: always
+    build:
+      context: ../../app/client
+      dockerfile: Dockerfile.dev
+    ports:
+      - 5173:5173
+    volumes:
+      - ../../app/client:/app
+      - /app/node_modules
+    depends_on:
+      - cms
+    networks:
+      - white-owl
+  cms:
+    container_name: cms
+    restart: always
+    build:
+      context: ../../app/cms
+      dockerfile: Dockerfile.dev
+    ports:
+      - 1337:1337
+    volumes:
+      - ../../app/cms:/app
+      - /app/node_modules
+    depends_on:
+      - database
+    networks:
+      - white-owl
+  database:
+    container_name: database
+    image: postgres:15-alpine
+    restart: always
+    environment:
+      POSTGRES_USER: postgres_user
+      POSTGRES_PASSWORD: root
+      POSTGRES_DB: school_database
+    ports:
+      - 5432:5432
+    volumes:
+      - ../../app/database:/var/lib/postgresql/data/
+    networks:
+      - white-owl
+
+networks:
+  white-owl:
+    name: WhiteOwl
+    driver: bridge

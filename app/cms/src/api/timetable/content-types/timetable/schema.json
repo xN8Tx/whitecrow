@@ -1,0 +1,46 @@
+{
+  "kind": "collectionType",
+  "collectionName": "timetables",
+  "info": {
+    "singularName": "timetable",
+    "pluralName": "timetables",
+    "displayName": "Расписание"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "time": {
+      "type": "enumeration",
+      "enum": [
+        "a8:00 – 8:40",
+        "a8:50 – 9:30",
+        "a9:40 – 10:20",
+        "a10:40 – 11:20",
+        "a11:30 – 12:10",
+        "a12:20 – 13:00"
+      ]
+    },
+    "day": {
+      "type": "enumeration",
+      "enum": [
+        "Понедельник",
+        "Вторник",
+        "Среда",
+        "Четверг",
+        "Пятница"
+      ]
+    },
+    "subject": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::subject.subject"
+    },
+    "class": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::class.class"
+    }
+  }
+}

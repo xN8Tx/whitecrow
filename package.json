@@ -1,0 +1,12 @@
+{
+  "name": "white-crow",
+  "version": "2.0.0",
+  "description": "",
+  "author": "Evgeniy Shteyn <evgeniy@shteyn-web.ru> (https://shteyn-web.ru)",
+  "scripts": {
+    "dev": "docker compose -f ./config/dev/docker-compose.yml up --build",
+    "start:prod": "sudo docker compose -f ./config/prod/docker-compose.yml up --build -d",
+    "start": "docker compose -f ./config/prod/docker-compose.yml up --build"
+  },
+  "license": "MIT"
+}

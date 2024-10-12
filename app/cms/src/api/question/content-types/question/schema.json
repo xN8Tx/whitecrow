@@ -1,0 +1,37 @@
+{
+  "kind": "collectionType",
+  "collectionName": "questions",
+  "info": {
+    "singularName": "question",
+    "pluralName": "questions",
+    "displayName": "Вопросы",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "media": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "videos"
+      ]
+    },
+    "answers": {
+      "type": "json"
+    },
+    "test": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::test.test",
+      "mappedBy": "questions"
+    }
+  }
+}
